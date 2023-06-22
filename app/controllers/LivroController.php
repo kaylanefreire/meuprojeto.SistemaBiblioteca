@@ -66,11 +66,11 @@ class LivroController {
 
 	function deletarUsuario(int $idDoRelacionamento){
        
-        $model = new Usuario();
+        $model = new EmprestimoLivros();
         $rel = $model->findById($idDoRelacionamento);
         $model->delete($idDoRelacionamento);
 
-        redirect("usuarios/index/{$rel['usuario_id']}");
+        redirect("livro/index/{$rel['usuario_id']}");
     }
 
 

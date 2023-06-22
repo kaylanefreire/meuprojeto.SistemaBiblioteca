@@ -67,7 +67,7 @@
             <tr>
                 <td><?=$item['nome']?></td>
                 <td>
-                    <a href='<?=route("veiculos/deletarUsuario/{$item['id']}")?>'>Deletar</a>
+                    <a href='<?=route("Livro/deletarUsuario/{$item['id']}")?>'>Deletar</a>
                 </td>
             </tr>
         <?php endforeach; ?>

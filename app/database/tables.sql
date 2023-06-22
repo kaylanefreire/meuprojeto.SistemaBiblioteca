@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS usuarios (
 DROP TABLE IF EXISTS emprestimo_livros;
 
 CREATE TABLE IF NOT EXISTS emprestimo_livros (
-    id      INTEGER PRIMARY KEY,
-    usuario_id      TEXT    NOT NULL,
-    livro_id      TEXT    NOT NULL,
+    id      INTEGER    PRIMARY KEY,
+    usuario_id TEXT    NOT NULL,
+    livro_id   TEXT    NOT NULL,
 
     /* definicao de chave estrangeira */
     FOREIGN KEY (usuario_id)
