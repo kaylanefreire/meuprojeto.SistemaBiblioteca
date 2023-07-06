@@ -7,7 +7,16 @@ use models\Usuario;
 
 class LivroController {
 
-	
+	#construtor, é iniciado sempre que a classe é chamada
+
+	function __construct() {
+    #se nao existir é porque nao está logado
+    	if (!isset($_SESSION["user"])){
+       		redirect("autenticacao");
+        die();
+    	}
+	}
+
 	function index($id = null){
 
 		#variáveis que serao passados para a view

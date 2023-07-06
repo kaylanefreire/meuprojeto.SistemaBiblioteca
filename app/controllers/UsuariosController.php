@@ -14,6 +14,21 @@ class UsuariosController {
 	/**
 	* Para acessar http://localhost/NOMEDOPROJETO/usuarios/index
 	**/
+	
+	function __construct() {
+		#se nao existir é porque nao está logado
+			if (!isset($_SESSION["user"])){
+				   redirect("autenticacao");
+			die();
+			}
+
+		#proibe o usuário de entrar caso não tenha autorização
+		if ($_SESSION['user']['tipo'] < 2){
+    		header("HTTP/1.1 401 Unauthorized");
+    		die();
+		}
+	}
+	
 	function index($id = null){
 
 		#variáveis que serao passados para a view

@@ -19,6 +19,10 @@
     <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
 </label>
 
+<label class='col-md-2'>
+    Senha
+    <input type="password" class="form-control" name="senha">
+</label>
 
 <button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>
 <a class='btn btn-secondary col-12 col-md-3 mt-3' href="<?=route("usuarios")?>">Novo</a>

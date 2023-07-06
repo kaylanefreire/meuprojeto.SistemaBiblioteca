@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     id               INTEGER PRIMARY KEY,
     nome             TEXT NOT NULL,
     dataNascimento   TEXT,
-    email            TEXT NOT NULL
+    email            TEXT NOT NULL,
+    senha            TEXT
 );
 
 DROP TABLE IF EXISTS emprestimo_livros;
