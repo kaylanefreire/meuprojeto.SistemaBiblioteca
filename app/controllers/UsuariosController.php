@@ -23,7 +23,7 @@ class UsuariosController {
 			}
 
 		#proibe o usuário de entrar caso não tenha autorização
-		if ($_SESSION['user']['tipo'] < 2){
+		if ($_SESSION['user']['tipo'] < Usuario::ADMIN_USER){
     		header("HTTP/1.1 401 Unauthorized");
     		die();
 		}
@@ -47,7 +47,8 @@ class UsuariosController {
 
 		#busca todos os registros
 		$send['lista'] = $model->all();
-
+		#$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
+		$send['tipos'] = Usuario::$userTypes;
 		#$send['tipos'] = [0=>"Escolha uma opção", 1=>"Usuário comum", 2=>"Admin"];
 
 		#chama a view
