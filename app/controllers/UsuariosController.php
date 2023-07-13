@@ -15,7 +15,7 @@ class UsuariosController {
 	* Para acessar http://localhost/NOMEDOPROJETO/usuarios/index
 	**/
 	
-	function __construct() {
+	/**function __construct() {
 		#se nao existir é porque nao está logado
 			if (!isset($_SESSION["user"])){
 				   redirect("autenticacao");
@@ -27,7 +27,7 @@ class UsuariosController {
     		header("HTTP/1.1 401 Unauthorized");
     		die();
 		}
-	}
+	}**/
 	
 	function index($id = null){
 
@@ -59,6 +59,30 @@ class UsuariosController {
 	function salvar($id=null){
 
 		$model = new Usuario();
+
+		#validacao
+		$requeridos = ["nome"=>"Nome é obrigatório",
+		"dataNascimento"=>"Data de nascimento é obrigatória"];
+			foreach($requeridos as $field=>$msg){
+				#verifica se o campo está vazio
+				if (!validateRequired($_POST,$field)){
+				setValidationError($field, $msg);
+			}
+		}
+
+		#valida a data
+		if (!validateDate(_v($_POST,"dataNascimento"),"d/m/Y")){
+			setValidationError("dataNascimento", "Tem que ser uma data válida no formato dd/mm/yyyy");
+		}
+	
+		#se alguma validação tiver falhado
+		if (count($_SESSION['errors'])){
+			setFlash("error","Falha ao salvar usuário.");
+			#volta para a página que estava
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
+			die();
+		}
+
 		
 		if ($id == null){
 			$id = $model->save($_POST);
@@ -66,6 +90,7 @@ class UsuariosController {
 			$id = $model->update($id, $_POST);
 		}
 		
+		setFlash("success","Salvo com sucesso.");
 		redirect("usuarios/index/$id");
 	}
 

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="<?=assets('bootstrap/css/bootstrap.min.css')?>" />
     <script src="<?=assets('bootstrap/js/bootstrap.bundle.min.js')?>" ></script>
 
+    <script src="https://unpkg.com/imask"></script>
+    <script src="<?=assets('js/main.js')?>" ></script>
+    
     <link rel="stylesheet" href="<?=assets('css/estilo.css')?>" />
 </head>
 <body>
@@ -53,3 +56,14 @@
 </nav>
 
 <div class="container">
+
+<?php
+
+if (getFlash("success")){
+    print "<div class='alert alert-success' role='alert'>".getFlash("success")."</div>";
+} else
+if (getFlash("error")){
+    print "<div class='alert alert-danger' role='alert'>".getFlash("error")."</div>";
+}
+
+?>

@@ -5,14 +5,22 @@
 <form method='POST' action='<?=route('usuarios/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
-    Nome
-    <input type="text" class="form-control" name="nome" value="<?=_v($data,"nome")?>" >
+    Nome <span style='color:red;'>*</span>
+    <input type="text" class="form-control <?=hasError("nome","is-invalid")?>" name="nome" value="<?=old("nome", _v($data,"nome"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("nome") ?></div>
 </label>
 
-<label class='col-md-2'>
-    Data de nascimento
-    <input type="text" class="form-control" name="dataNascimento" value="<?=_v($data,"dataNascimento")?>" >
+
+<label class='col-md-4' style='position:relative'>
+    Data de nascimento <span style='color:red;'>*</span>
+    <input type="text" class="form-control <?=hasError("dataNascimento","is-invalid")?>" name="dataNascimento"
+            value="<?=old("dataNascimento", _v($data,"dataNascimento"))?>" >
+
+    <!-- para esse formato (invalid-tooltip) funcionar, o parent tem que ser relative -->
+    <div class="invalid-tooltip"><?=getValidationError("dataNascimento") ?></div>
 </label>
+
+
 
 <label class='col-md-2'>
     E-mail
