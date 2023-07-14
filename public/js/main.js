@@ -2,8 +2,10 @@
 window.addEventListener("load", (event) => {
     //aplicando mascara em um elemento
     element = document.querySelector('#cpf');
-    maskOptions = { mask: '000.000.000-00' };
-    IMask(element, maskOptions);
+    if (element) {
+        maskOptions = { mask: '000.000.000-00' };
+        IMask(element, maskOptions);
+    }
 
     //aplicando mascaras em varios elementos
     elements = document.querySelectorAll('.date');

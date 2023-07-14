@@ -13,7 +13,7 @@
 
 <label class='col-md-4' style='position:relative'>
     Data de nascimento <span style='color:red;'>*</span>
-    <input type="text" class="form-control <?=hasError("dataNascimento","is-invalid")?>" name="dataNascimento"
+    <input type="text" class="form-control date <?=hasError("dataNascimento","is-invalid")?>" name="dataNascimento"
             value="<?=old("dataNascimento", _v($data,"dataNascimento"))?>" >
 
     <!-- para esse formato (invalid-tooltip) funcionar, o parent tem que ser relative -->
