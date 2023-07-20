@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nome             TEXT NOT NULL,
     dataNascimento   TEXT,
     email            TEXT NOT NULL,
-    senha            TEXT
+    senha            TEXT,
+    tipo             TEXT
 );
 
 DROP TABLE IF EXISTS emprestimo_livros;

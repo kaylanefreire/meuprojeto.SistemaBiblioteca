@@ -1,5 +1,6 @@
 <?php
 use models\Usuario;
+use models\Livro;
 
 class AutenticacaoController {
 
@@ -19,7 +20,7 @@ class AutenticacaoController {
         if ($user != null){
             #se encontrar salva na sessao
             $_SESSION['user'] = $user;
-            redirect("usuarios");
+            redirect("livro");
         } else {
             #caso contrario, manda para o login novamente
             $send = ["msg"=>"Login ou senha inválida"];

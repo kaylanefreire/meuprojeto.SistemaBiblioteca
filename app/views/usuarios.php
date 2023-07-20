@@ -20,8 +20,6 @@
     <div class="invalid-tooltip"><?=getValidationError("dataNascimento") ?></div>
 </label>
 
-
-
 <label class='col-md-2'>
     E-mail
     <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
@@ -30,6 +28,18 @@
 <label class='col-md-2'>
     Senha
     <input type="password" class="form-control" name="senha">
+</label>
+
+<label class='col-md-6'>
+    Tipo
+    <select name="tipo" class="form-control">
+        <?php
+        foreach($tipos as $k=>$tipo){
+            _v($data,"tipo") == $k ? $selected='selected' : $selected='';
+            print "<option value='$k' $selected>$tipo</option>";
+        }
+        ?>
+    </select>
 </label>
 
 <button class='btn btn-primary col-12 col-md-3 mt-3'>Salvar</button>

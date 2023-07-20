@@ -6,7 +6,7 @@ class Usuario extends Model {
 
     protected $table = "usuarios";
     #nao esqueça da ID
-    protected $fields = ["id","nome","dataNascimento","email", "senha"];
+    protected $fields = ["id","nome","dataNascimento","email", "senha", "tipo"];
 
     const COMUM_USER = 1;
     const ADMIN_USER = 5;

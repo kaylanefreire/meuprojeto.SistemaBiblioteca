@@ -23,7 +23,7 @@ class UsuariosController {
 			}
 
 		#proibe o usuário de entrar caso não tenha autorização
-		if ($_SESSION['user'] < Usuario::ADMIN_USER){
+		if ($_SESSION['user']['tipo']  < Usuario::ADMIN_USER){
     		header("HTTP/1.1 401 Unauthorized");
     		die();
 		}
