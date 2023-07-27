@@ -5,29 +5,28 @@
 <form method='POST' action='<?=route('usuarios/salvar/'._v($data,"id"))?>'>
 
 <label class='col-md-6'>
-    Nome <span style='color:red;'>*</span>
+    Nome: <span style='color:red;'>*</span>
     <input type="text" class="form-control <?=hasError("nome","is-invalid")?>" name="nome" value="<?=old("nome", _v($data,"nome"))?>" >
     <div class='invalid-feedback'><?=getValidationError("nome") ?></div>
 </label>
 
 
 <label class='col-md-4' style='position:relative'>
-    Data de nascimento <span style='color:red;'>*</span>
-    <input type="text" class="form-control date <?=hasError("dataNascimento","is-invalid")?>" name="dataNascimento"
-            value="<?=old("dataNascimento", _v($data,"dataNascimento"))?>" >
-
-    <!-- para esse formato (invalid-tooltip) funcionar, o parent tem que ser relative -->
-    <div class="invalid-tooltip"><?=getValidationError("dataNascimento") ?></div>
+    Data de Nascimento: <span style='color:red;'>*</span>
+    <input type="text" class="form-control <?=hasError("dataNascimento","is-invalid")?>" name="dataNascimento" value="<?=old("dataNascimento", _v($data,"dataNascimento"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("dataNascimento") ?></div>
 </label>
 
 <label class='col-md-2'>
-    E-mail
-    <input type="text" class="form-control" name="email" value="<?=_v($data,"email")?>" >
+    E-mail: <span style='color:red;'>*</span>
+    <input type="text" class="form-control <?=hasError("email","is-invalid")?>" name="email" value="<?=old("email", _v($data,"email"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("email") ?></div>
 </label>
 
 <label class='col-md-2'>
-    Senha
-    <input type="password" class="form-control" name="senha">
+    Senha: <span style='color:red;'>*</span>
+    <input type="password" class="form-control <?=hasError("senha","is-invalid")?>" name="senha" value="<?=old("senha", _v($data,"senha"))?>" >
+    <div class='invalid-feedback'><?=getValidationError("senha") ?></div>
 </label>
 
 <label class='col-md-6'>

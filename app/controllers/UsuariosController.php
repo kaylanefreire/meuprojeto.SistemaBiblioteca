@@ -62,7 +62,7 @@ class UsuariosController {
 
 		#validacao
 		$requeridos = ["nome"=>"Nome é obrigatório",
-		"dataNascimento"=>"Data de nascimento é obrigatória"];
+		"dataNascimento"=>"Data de nascimento é obrigatória", "email"=>"E-mail é obrigatório", "senha" => "Criação de senha é obrigatória"];
 			foreach($requeridos as $field=>$msg){
 				#verifica se o campo está vazio
 				if (!validateRequired($_POST,$field)){
