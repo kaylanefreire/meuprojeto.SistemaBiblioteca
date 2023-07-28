@@ -1,4 +1,3 @@
-//Espera a pagina ser carregada
 window.addEventListener("load", (event) => {
     //aplicando mascara em um elemento
     element = document.querySelector('#cpf');

@@ -18,10 +18,9 @@ class AutenticacaoController {
         $user = $model->findByEmailAndSenha($_POST["email"],  $_POST["senha"]);
     
         if ($user != null){
-            #se encontrar salva na sessao
             $_SESSION['user'] = $user;
-            redirect("livro");
-        } else {
+            redirect("autores");
+        }else {
             #caso contrario, manda para o login novamente
             $send = ["msg"=>"Login ou senha inválida"];
             render("login", $send);
